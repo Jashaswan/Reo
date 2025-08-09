@@ -10,7 +10,6 @@
         overflow: hidden;
         font-family: 'Segoe UI', cursive;
         text-align: center;
-        color: white;
         background: black;
         cursor: pointer;
     }
@@ -25,26 +24,34 @@
         border-right: 3px solid white;
         animation: typing 3s steps(30, end) forwards, blink 0.8s infinite;
         text-shadow: 0 0 10px pink, 0 0 20px hotpink, 0 0 30px red;
+        color: white;
+        z-index: 10;
     }
 
-    #line1 {
-        top: 35%;
-        animation-delay: 0s, 0s;
-    }
-    #line2 {
-        top: 50%;
-        width: 0;
-        animation-delay: 3.5s, 3.5s;
-    }
+    #line1 { top: 30%; animation-delay: 0s, 0s; }
+    #line2 { top: 45%; width: 0; animation-delay: 3.5s, 3.5s; }
 
     @keyframes typing {
         from { width: 0 }
         to { width: 100% }
     }
-
     @keyframes blink {
         0%, 100% { border-color: transparent }
         50% { border-color: white }
+    }
+
+    #photo {
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        height: auto;
+        border-radius: 15px;
+        box-shadow: 0 0 20px pink, 0 0 40px red;
+        opacity: 0;
+        transition: opacity 2s ease;
+        z-index: 10;
     }
 
     .heart {
@@ -90,6 +97,9 @@
 <div id="line1" class="line">Happy birthday my 💕 😘</div>
 <div id="line2" class="line">I love you so much sweetuu ❤️</div>
 
+<!-- Photo -->
+<img id="photo" src="my-photo.jpg" alt="Sweetuu Photo">
+
 <!-- Background music -->
 <audio id="bg-music" loop>
     <source src="happy-birthday-my-love.mp3" type="audio/mpeg">
@@ -124,6 +134,11 @@ for (let i = 0; i < 50; i++) {
     sparkle.style.animationDelay = (Math.random() * 2) + 's';
     document.body.appendChild(sparkle);
 }
+
+// Show photo after second line finishes typing
+setTimeout(() => {
+    document.getElementById('photo').style.opacity = 1;
+}, 7000); // Delay matches both typing animations
 
 // Start music on click
 document.body.addEventListener('click', () => {
