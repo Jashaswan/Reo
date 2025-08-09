@@ -8,27 +8,45 @@
     body {
         margin: 0;
         overflow: hidden;
-        font-family: 'Segoe UI', sans-serif;
+        font-family: 'Segoe UI', cursive;
         text-align: center;
         color: white;
         background: black;
         cursor: pointer;
     }
-    h1 {
+
+    .line {
         position: absolute;
-        top: 40%;
         left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 3em;
-        color: pink;
-        text-shadow: 0 0 15px hotpink, 0 0 30px red;
-        animation: glow 2s ease-in-out infinite alternate;
-        z-index: 10;
+        transform: translateX(-50%);
+        font-size: 2.5em;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 3px solid white;
+        animation: typing 3s steps(30, end) forwards, blink 0.8s infinite;
+        text-shadow: 0 0 10px pink, 0 0 20px hotpink, 0 0 30px red;
     }
-    @keyframes glow {
-        from { text-shadow: 0 0 10px pink, 0 0 20px red; }
-        to { text-shadow: 0 0 20px hotpink, 0 0 40px red; }
+
+    #line1 {
+        top: 35%;
+        animation-delay: 0s, 0s;
     }
+    #line2 {
+        top: 50%;
+        width: 0;
+        animation-delay: 3.5s, 3.5s;
+    }
+
+    @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+    }
+
+    @keyframes blink {
+        0%, 100% { border-color: transparent }
+        50% { border-color: white }
+    }
+
     .heart {
         position: absolute;
         color: red;
@@ -68,8 +86,9 @@
     <canvas id="c"></canvas>
 </div>
 
-<!-- Main message -->
-<h1>I love you so much sweetuu ❤️</h1>
+<!-- Main messages -->
+<div id="line1" class="line">Happy birthday my 💕 😘</div>
+<div id="line2" class="line">I love you so much sweetuu ❤️</div>
 
 <!-- Background music -->
 <audio id="bg-music" loop>
