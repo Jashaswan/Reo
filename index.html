@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Sweetuu ❤️</title>
+<title>Sweetuu 🩷</title>
 <link rel="stylesheet" href="function-heart.css">
 <style>
     body {
@@ -10,24 +10,23 @@
         overflow: hidden;
         font-family: 'Segoe UI', cursive;
         text-align: center;
-        background: black;
+        background: url('background.jpg') no-repeat center center fixed;
+        background-size: cover;
         cursor: pointer;
     }
 
     .line {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: clamp(1.8em, 6vw, 2.5em); /* Bigger but still fits */
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 3px solid white;
-    animation: typing 3s steps(30, end) forwards, blink 0.8s infinite;
-    text-shadow: 0 0 10px pink, 0 0 20px hotpink, 0 0 30px red;
-    color: white;
-    z-index: 10;
-    }
-    }
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: clamp(1.8em, 6vw, 2.5em);
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 3px solid white;
+        animation: typing 3s steps(30, end) forwards, blink 0.8s infinite;
+        text-shadow: 0 0 10px pink, 0 0 20px hotpink, 0 0 30px red;
+        color: white;
+        z-index: 10;
     }
 
     #line1 { top: 40%; animation-delay: 0s, 0s; }
@@ -44,7 +43,7 @@
 
     #photo {
         position: absolute;
-        top: 60%;
+        top: 70%;
         left: 50%;
         transform: translateX(-50%);
         width: 200px;
@@ -96,8 +95,8 @@
 </div>
 
 <!-- Main messages -->
-<div id="line1" class="line">Happy birthday my 💕 😘</div>
-<div id="line2" class="line">I love you my sweetu ❤️</div>
+<div id="line1" class="line">Happy birthday my 💞 🥳</div>
+<div id="line2" class="line">I love you my sweetu 😚</div>
 
 <!-- Photo -->
 <img id="photo" src="my-photo.jpg" alt="Sweetuu Photo">
@@ -121,7 +120,7 @@ document.body.clientWidth;
 for (let i = 0; i < 30; i++) {
     let heart = document.createElement('div');
     heart.className = 'heart';
-    heart.innerHTML = '❤️';
+    heart.innerHTML = '🩷';
     heart.style.left = Math.random() * 100 + 'vw';
     heart.style.animationDuration = (3 + Math.random() * 2) + 's';
     document.body.appendChild(heart);
@@ -150,7 +149,3 @@ document.body.addEventListener('click', () => {
 
 </body>
 </html>
-
-
-
-
