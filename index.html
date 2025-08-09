@@ -3,21 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <title>Sweetuu ❤️</title>
+<link rel="stylesheet" href="function-heart.css">
 <style>
     body {
-        background: black;
-        color: white;
-        text-align: center;
         margin: 0;
         overflow: hidden;
         font-family: 'Segoe UI', sans-serif;
+        text-align: center;
+        color: white;
+        background: black;
+        cursor: pointer;
     }
     h1 {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         font-size: 3em;
         color: pink;
         text-shadow: 0 0 15px hotpink, 0 0 30px red;
-        margin-top: 20%;
         animation: glow 2s ease-in-out infinite alternate;
+        z-index: 10;
     }
     @keyframes glow {
         from { text-shadow: 0 0 10px pink, 0 0 20px red; }
@@ -28,6 +34,7 @@
         color: red;
         font-size: 20px;
         animation: float 5s linear infinite;
+        z-index: 5;
     }
     @keyframes float {
         0% { transform: translateY(100vh) scale(1); opacity: 1; }
@@ -40,21 +47,46 @@
         background: white;
         border-radius: 50%;
         animation: sparkle 2s infinite;
+        z-index: 5;
     }
     @keyframes sparkle {
         0%, 100% { opacity: 0; }
         50% { opacity: 1; }
     }
+    canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
 </style>
 </head>
 <body>
+
+<!-- Heart animation background -->
+<div id="obal">
+    <canvas id="c"></canvas>
+</div>
+
+<!-- Main message -->
 <h1>I love you so much sweetuu ❤️</h1>
+
+<!-- Background music -->
 <audio id="bg-music" loop>
     <source src="happy-birthday-my-love.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-// Hearts
+// Load original heart animation
+var b = document.body;
+var c = document.getElementsByTagName('canvas')[0];
+var a = c.getContext('2d');
+document.body.clientWidth;
+</script>
+<script src="function-heart.js"></script>
+
+<script>
+// Floating hearts
 for (let i = 0; i < 30; i++) {
     let heart = document.createElement('div');
     heart.className = 'heart';
@@ -79,5 +111,6 @@ document.body.addEventListener('click', () => {
     document.getElementById('bg-music').play();
 });
 </script>
+
 </body>
 </html>
